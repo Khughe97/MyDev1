@@ -1,0 +1,55 @@
+
+
+//SELECT  id, lastName , phone FROM Contact
+
+//SELECT id , name, mailingCity from contact where mailingCity = 'Paris'
+
+// for wild card we us Like instead of =
+//SELECT id , name, mailingCity from contact where mailingCity = ''
+
+//starts with a
+//SELECT id , name, mailingCity from contact where name Like 'A%'
+
+//%A ends with A
+//SELECT id , name, mailingCity from contact where name Like '%a'
+
+//%a% contains A
+//SELECT id , name, mailingCity from contact where name Like '%A%'
+
+// use ORDER BY field Name 
+//by defualt it will order in ascending order
+// for descending order write 'DESC' as shown below 
+//SELECT id, name, Active__c, AccountNumber from account  ORDER BY name DESC
+
+//SELECT id, name, Active__c, AccountNumber, createddate from account order by createddate desc
+
+
+// to retrieve only N records, write LIMIT N(n=some number)
+//SELECT name, industry, FROM account where Indistry = 'Energy' LIMIT 3
+// to get number of records use count()
+//count(fieldName) returns us records 
+// where the provided filed is not blank
+//SELECT COUNT () FROM Contact
+//SELECT COUNT (ID) FROM Contact
+//SELECT COUNT (MailingCity) FROM Contact
+
+
+//using operators
+select id, name, phone, Active__c, AccountNumber, createddate from account where phone!=null
+
+select id, name, phone, Active__c, AccountNumber, industry, createddate from account where phone!=null
+
+//using AND and OR in the WHERE clause
+select id, name, phone, Active__c, AccountNumber, industry, website, createddate from account where phone!=null or website != null
+select id, name, phone, Active__c, AccountNumber, industry, website, createddate from account where (phone!=null or website != null) and accountNumber!= null  
+//SELECT Id, Admin_Notes__c, Completed_Date__c, Description__c, Priority__c, Requested_by_date__c, Requester__c, Status__c FROM Salesforce_Ticket__c where status__c != '' and priority__c = 'high'
+
+
+//child to parent
+//just "."   (dot)
+//similar to formula fields
+//Select ID, Name, Account.Name From Contact Where Account.Industry = 'Energy'
+
+//SELECT ID, Name, Subject__c, priority__c, Salesforce_project_r.Project_Name__c, Salesforce_project__r.status__c From Salesforce_ticket__c
+
+
